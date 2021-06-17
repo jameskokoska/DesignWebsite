@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css"> 
+    <title id="websiteTitle"></title>
+    <meta name="viewport" content="width=355, initial-scale=1.0">
+  </head>
+  <body>
+    <script src="data.js"></script>
+    <div class="navBar dropIn">
+      <div class="navBarButtonContainer">
+        <a id="linkedInContactNav" target="_blank"><img alt="linkedIn" src="assets/linkedin-in-brands.svg" class="linkedInButton linkedInButtonNav"></a>
+        <a href="#about">
+          <div class="navBarButton">
+            About
+          </div>
+        </a>
+        <a href="#experience">
+          <div class="navBarButton">
+            Experience
+          </div>
+        </a>
+        <a href="#skills">
+          <div class="navBarButton">
+            Skills
+          </div>
+        </a>
+        <a href="#contact">
+          <div class="navBarButton">
+            Contact
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="landingContainer">
+      <div class="landingBioImgContainer">
+        <img src="assets/bio.jpg" class="landingBioImg" alt="bio">
+      </div>
+      <div class="landingBioHeader">
+        <h1 class="animation1" id="contentFirstName"></h1>
+        <h1 class="animation2" id="contentLastName"></h1>
+      </div>
+    </div>
+    <div class="scrollDown">
+      <div class="scrollDownInfinite">
+        <p>Scroll Down</p>
+        <div class="center"><div class="vl"></div></div>
+      </div>
+    </div>
+    <div class="center" id="about">
+      <div class="navBarSpace"></div>
+      <div class="aboutContainer">
+        <h2>About Me</h2>
+        <p id="contentAbout"></p>
+        <a id="resumeButton" target="_blank"><div class="buttonAbout"><div class="button">Résumé ►</div></div></a>
+      </div>
+    </div>
+    <div class="center" id="experience">
+      <div class="navBarSpace"></div>
+      <div class="experienceContainer">
+        <h2>Experience</h2>
+        <div class="experienceBoxContainer" id="experienceBoxes"></div>
+      </div>
+    </div>
+    <div class="center" id="skills">
+      <div class="navBarSpace"></div>
+      <div class="skillsContainer">
+        <h2>Skills</h2>
+        <div class="skillsBoxContainer" id="skillsBoxes"></div>
+      </div>
+    </div>
+    <div class="center" id="contact">
+      <div class="navBarSpace"></div>
+      <div class="contactContainer">
+        <div class="center contactHeader"><h1>Contact me</h1></div>
+        <h2 class="contactEmail" id="contentEmail"></h2>
+        <a id="linkedInContact" target="_blank"><img alt="linkedIn" src="assets/linkedin-in-brands.svg" class="linkedInButton"></a>
+        <div class="bottomLicense" id="contentLicense"></div>
+      </div>
+    </div>
+  </body>
+  <script>
+    document.getElementById("websiteTitle").innerHTML = content["websiteTitle"];
+    document.getElementById("contentFirstName").innerHTML = content["firstName"];
+    document.getElementById("contentLastName").innerHTML = content["lastName"];
+    document.getElementById("contentAbout").innerHTML = content["aboutMe"];
+    document.getElementById("contentEmail").innerHTML = content["email"];
+    document.getElementById("contentLicense").innerHTML = content["license"];
+    document.getElementById("linkedInContact").href = content["linkedIn"];
+    document.getElementById("linkedInContactNav").href = content["linkedIn"];
+    document.getElementById("resumeButton").href = content["resumeLink"];
+    var experienceBoxes = '';
+    for(i = 0; i < content["experience"].length; i++) {
+      experienceBoxes+='<div class="experienceBox">'
+      if(content["experience"][i]["picture"]!==undefined){
+        experienceBoxes+='<img alt="experience icon" src="'+ content["experience"][i]["picture"] +'">'
+      }
+      experienceBoxes+='<h3>'+ content["experience"][i]["title"] +'</h3>';
+      experienceBoxes+='<p>'+ content["experience"][i]["text"] +'</p>'
+      experienceBoxes+='</div>';
+    }
+    document.getElementById("experienceBoxes").innerHTML = experienceBoxes;
+    var skillsBoxes = '';
+    for(i = 0; i < content["skills"].length; i++) {
+      skillsBoxes+='<div class="skillsBox">'
+      if(content["skills"][i]["picture"]!==undefined){
+        skillsBoxes+='<img alt="skill icon" src="'+ content["skills"][i]["picture"] +'">'
+      }
+      skillsBoxes+='<h3>'+ content["skills"][i]["title"] +'</h3>';
+      skillsBoxes+='<p>'+ content["skills"][i]["text"] +'</p>'
+      skillsBoxes+='</div>';
+    }
+    document.getElementById("skillsBoxes").innerHTML = skillsBoxes;
+  </script>
+</html>
