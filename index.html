@@ -15,6 +15,11 @@
             About
           </div>
         </a>
+        <a href="#education">
+          <div class="navBarButton">
+            Education
+          </div>
+        </a>
         <a href="#experience">
           <div class="navBarButton">
             Experience
@@ -23,6 +28,11 @@
         <a href="#skills">
           <div class="navBarButton">
             Skills
+          </div>
+        </a>
+        <a href="#extraCurricular">
+          <div class="navBarButton">
+            Extra-Curriculars
           </div>
         </a>
         <a href="#contact">
@@ -55,6 +65,15 @@
         <a id="resumeButton" target="_blank"><div class="buttonAbout"><div class="button">Résumé ►</div></div></a>
       </div>
     </div>
+    <div class="center" id="education">
+      <div class="navBarSpace"></div>
+      <div class="aboutContainer">
+        <h2>Education</h2>
+        <h3 id="contentEducationHeader"></h3>
+        <p class="experienceDate" id="contentEducationDate"></p>
+        <p id="contentEducationText"></p>
+      </div>
+    </div>
     <div class="center" id="experience">
       <div class="navBarSpace"></div>
       <div class="experienceContainer">
@@ -67,6 +86,13 @@
       <div class="skillsContainer">
         <h2>Skills</h2>
         <div class="skillsBoxContainer" id="skillsBoxes"></div>
+      </div>
+    </div>
+    <div class="center" id="extraCurricular">
+      <div class="navBarSpace"></div>
+      <div class="extraCurricularContainer">
+        <h2>Extra-Curriculars</h2>
+        <div class="extraCurricularBoxContainer" id="extraCurricularBoxes"></div>
       </div>
     </div>
     <div class="center" id="contact">
@@ -84,6 +110,9 @@
     document.getElementById("contentFirstName").innerHTML = content["firstName"];
     document.getElementById("contentLastName").innerHTML = content["lastName"];
     document.getElementById("contentAbout").innerHTML = content["aboutMe"];
+    document.getElementById("contentEducationHeader").innerHTML = content["education"]["title"];
+    document.getElementById("contentEducationDate").innerHTML = content["education"]["date"];
+    document.getElementById("contentEducationText").innerHTML = content["education"]["text"];
     document.getElementById("contentEmail").innerHTML = content["email"];
     document.getElementById("contentLicense").innerHTML = content["license"];
     document.getElementById("linkedInContact").href = content["linkedIn"];
@@ -96,6 +125,7 @@
         experienceBoxes+='<img alt="experience icon" src="'+ content["experience"][i]["picture"] +'">'
       }
       experienceBoxes+='<h3>'+ content["experience"][i]["title"] +'</h3>';
+      experienceBoxes+='<p class="experienceDate">'+ content["experience"][i]["date"] +'</p>'
       experienceBoxes+='<p>'+ content["experience"][i]["text"] +'</p>'
       experienceBoxes+='</div>';
     }
@@ -111,5 +141,14 @@
       skillsBoxes+='</div>';
     }
     document.getElementById("skillsBoxes").innerHTML = skillsBoxes;
+    var extraCurricularBoxes = '';
+    for(i = 0; i < content["extraCurricular"].length; i++) {
+      extraCurricularBoxes+='<div class="extraCurricularBox">'
+      extraCurricularBoxes+='<h3>'+ content["extraCurricular"][i]["title"] +'</h3>';
+      extraCurricularBoxes+='<h4>'+ content["extraCurricular"][i]["subtitle"] +'</h4>';
+      extraCurricularBoxes+='<p>'+ content["extraCurricular"][i]["text"] +'</p>'
+      extraCurricularBoxes+='</div>';
+    }
+    document.getElementById("extraCurricularBoxes").innerHTML = extraCurricularBoxes;
   </script>
 </html>
