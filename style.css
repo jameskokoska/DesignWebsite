@@ -2,6 +2,7 @@
   --nav-font-color:#252840;
   --background: #f6f8fe;
   --background-nav: #f4bfc59d;
+  --background-nav-full: #f4bfc5ef;
   --landing-font-color: #232952;
   --accent-color: #f4bfc5;
   --accent-color-dark: #25284031;
@@ -93,6 +94,7 @@ a{
   justify-content: center;
   flex-wrap: wrap;
   flex-direction: row;
+  margin: 0px 50px;
 }
 
 .navBarButton{
@@ -233,6 +235,15 @@ a{
   }
   .navBarButton:hover{
     transform: scale(1.1) translateY(0px);
+  }
+  .navBarButtonContainer{
+    margin: 0px 40px;
+  }
+  .scrollDown{
+    top: 93vh;
+  }
+  .navBar{
+    background-color: var(--background-nav-full);
   }
 }
 
@@ -482,8 +493,9 @@ p{
 }
 
 .linkedInButtonNav{
-  top:0;
-  right:0;
+  position: absolute;
+  right: 0;
+  top: 0;
   padding:15px;
   width: 30px;
   filter: invert(0);
@@ -501,9 +513,6 @@ p{
   }
   .contactEmail{
     font-size: 20px;
-  }
-  .linkedInButtonNav{
-    display: none;
   }
   .linkedInButton{
     width: 25px;
